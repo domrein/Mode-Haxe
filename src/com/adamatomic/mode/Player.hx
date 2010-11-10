@@ -88,9 +88,9 @@ class Player extends FlxSprite {
 			facing = FlxSprite.RIGHT;
 			acceleration.x += drag.x;
 		}
-		if (FlxG.keys.X) {
-			Main.debugTextField.text += "Just pressed X, velocity.y: " + velocity.y + "\n";
-		}
+		//if (FlxG.keys.X) {
+		//	Main.debugTextField.text += "Just pressed X, velocity.y: " + velocity.y + "\n";
+		//}
 		if(FlxG.keys.justPressed("X") && velocity.y == 0)
 		{
 			velocity.y = -_jumpPower;
