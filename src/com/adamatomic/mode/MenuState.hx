@@ -12,9 +12,6 @@ import org.flixel.FlxSave;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 
-private class ImgSpawnerGibs extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/spawner_gibs.png"));}}
-private class ImgCursor extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/cursor.png"));}}
-
 class MenuState extends FlxState {
 	
 	//[Embed(source="../../../data/spawner_gibs.png")] private var ImgGibs:Class;

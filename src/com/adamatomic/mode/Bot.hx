@@ -7,12 +7,10 @@ import org.flixel.FlxEmitter;
 import org.flixel.FlxG;
 import org.flixel.FlxU;
 import org.flixel.FlxPoint;
+import org.flixel.FlxObject;
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
-
-private class ImgBot extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/bot.png"));}}
-private class ImgJet extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/jet.png"));}}
 
 class Bot extends FlxSprite {
 	//[Embed(source="../../../data/bot.png")] private var ImgBot:Class;
@@ -25,11 +23,11 @@ class Bot extends FlxSprite {
 	private var _jets:FlxEmitter;
 	private var _player:Player;
 	private var _timer:Float;
-	private var _b:Array<Dynamic>;
+	private var _b:Array<BotBullet>;
 	static private var _cb:Int = 0;
 	private var _shotClock:Float;
 	
-	public function new(xPos:Int,yPos:Int,Bullets:Array<Dynamic>,Gibs:FlxEmitter,ThePlayer:Player)
+	public function new(xPos:Int,yPos:Int,Bullets:Array<BotBullet>,Gibs:FlxEmitter,ThePlayer:Player)
 	{
 		super(xPos,yPos);
 		loadRotatedGraphic(ImgBot,32,0);
@@ -157,7 +155,7 @@ class Bot extends FlxSprite {
 	private function shoot():Void
 	{
 		var ba:FlxPoint = FlxU.rotatePoint(-120,0,0,0,angle);
-		_b[_cb].shoot(x+width/2-2,y+height/2-2,ba.x,ba.y);
+		_b[_cb].shoot(Math.floor(x+width/2-2),Math.floor(y+height/2-2),Math.floor(ba.x),Math.floor(ba.y));
 		if(++_cb >= _b.length) _cb = 0;
 	}
 }

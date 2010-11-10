@@ -14,15 +14,7 @@ import org.flixel.FlxPoint;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 
-private class ImgTech extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/tech_tiles.png"));}}
-private class ImgDirtTop extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/dirt_top.png"));}}
-private class ImgDirt extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/dirt.png"));}}
-private class ImgNotch extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/notch.png"));}}
-private class ImgGibs extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/gibs.png"));}}
-private class ImgSpawnerGibs extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/spawner_gibs.png"));}}
-
-class PlayState extends FlxState
-{
+class PlayState extends FlxState {
 	//[Embed(source="../../../data/tech_tiles.png")] private var ImgTech:Class;
 	//[Embed(source="../../../data/dirt_top.png")] private var ImgDirtTop:Class;
 	//[Embed(source="../../../data/dirt.png")] private var ImgDirt:Class;
@@ -62,8 +54,7 @@ class PlayState extends FlxState
 	//used to safely reload the playstate after dying
 	public var reload:Bool;
 	
-	override public function create():Void
-	{
+	override public function create():Void {
 		FlxG.mouse.hide();
 		reload = false;
 		
@@ -121,6 +112,7 @@ class PlayState extends FlxState
 		buildRoom(r*2,r*0);
 		buildRoom(r*3,r*0,true);
 		buildRoom(r*0,r*1,true);
+		_spawners.add(new Spawner(0,0,_bigGibs,_bots,cast _botBullets.members,_littleGibs,_player));
 		buildRoom(r*1,r*1);
 		buildRoom(r*2,r*1);
 		buildRoom(r*3,r*1,true);
@@ -148,7 +140,7 @@ class PlayState extends FlxState
 			_botBullets.add(new BotBullet());
 		for (i in 0 ... 8)
 			_bullets.add(new Bullet());
-
+		
 		//add player and set up scrolling camera
 		add(_player);
 		FlxG.follow(_player,2.5);
@@ -229,13 +221,13 @@ class PlayState extends FlxState
 		_jamText.visible = false;
 		add(_jamText);
 		
-		//FlxG.playMusic(SndMode); //TODO: get sounds embedding/playing correctly
+		//FlxG.playMusic(SndMode); //TODO: get sounds embedding/playing correctly in hxcpp
+		
 		FlxG.flash.start(0xff131c1b);
 		_fading = false;
 	}
 
-	override public function update():Void
-	{
+	override public function update():Void {
 		var os:Int = FlxG.score;
 		
 		super.update();
@@ -323,22 +315,19 @@ class PlayState extends FlxState
 			FlxG.showBounds = !FlxG.showBounds;
 	}
 
-	private function overlapped(Object1:FlxObject,Object2:FlxObject):Void
-	{
+	private function overlapped(Object1:FlxObject,Object2:FlxObject):Void {
 		if(Std.is(Object1, BotBullet) || Std.is(Object1, Bullet))
 			Object1.kill();
 		Object2.hurt(1);
 	}
 	
-	private function onVictory():Void
-	{
+	private function onVictory():Void {
 		FlxG.music.stop();
 		FlxG.state = new VictoryState();
 	}
 	
 	//Just plops down a spawner and some blocks - haphazard and crappy atm but functional!
-	private function buildRoom(RX:Int,RY:Int,Spawners:Bool=false):Void
-	{
+	private function buildRoom(RX:Int,RY:Int,Spawners:Bool=false):Void {
 		//first place the spawn point (if necessary)
 		var rw:Int = 20;
 		var sx:Int = 0;
@@ -397,6 +386,6 @@ class PlayState extends FlxState
 		
 		//Finally actually add the spawner
 		if(Spawners)
-			_spawners.add(new Spawner(RX+sx*8,RY+sy*8,_bigGibs,_bots,_botBullets.members,_littleGibs,_player));
+			_spawners.add(new Spawner(RX+sx*8,RY+sy*8,_bigGibs,_bots,cast _botBullets.members,_littleGibs,_player));
 	}
 }

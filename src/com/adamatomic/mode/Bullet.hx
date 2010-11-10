@@ -7,8 +7,6 @@ import org.flixel.FlxG;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 
-private class ImgBullet extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/bullet.png"));}}
-
 class Bullet extends FlxSprite {
 	//[Embed(source="../../../data/bullet.png")] private var ImgBullet:Class;
 	//[Embed(source="../../../data/jump.mp3")] private var SndHit:Class;

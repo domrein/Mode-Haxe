@@ -1,0 +1,6 @@
+-cpp bin
+-main Main
+-lib nme
+--remap flash:nme
+-cp src
+-cp hxclasses

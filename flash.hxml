@@ -1,0 +1,14 @@
+-main Main
+-swf Main.swf
+-swf-version 10
+#-swf-lib data/assetsLib.swf
+-swf-lib data/Assets.swf
+-swf-header 640:480:30:FF0000
+-cp src
+-cp hxclasses
+
+#-main FlxInvaders
+#-swf ../bin/FlxInvaders.swf
+#-swf-version 10
+#-swf-lib ../res/assetsLib.swf
+#-swf-header 640:480:30:FF0000

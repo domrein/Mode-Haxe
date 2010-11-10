@@ -8,8 +8,6 @@ import org.flixel.FlxText;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 
-private class ImgGibs extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/spawner_gibs.png"));}}
-
 class VictoryState extends FlxState
 {
 	//[Embed(source="../../../data/spawner_gibs.png")] private var ImgGibs:Class;

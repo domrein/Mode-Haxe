@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+	
+<movie version="10" width="320" height="240" framerate="12">
+    <background color="#000000"/>
+    <frame>
+        <library>
+            <bitmap id="ImgTech" import="tech_tiles.png"/>
+            <bitmap id="ImgDirtTop" import="dirt_top.png"/>
+			<bitmap id="ImgDirt" import="dirt.png"/>
+			<bitmap id="ImgNotch" import="notch.png"/>
+			<bitmap id="ImgGibs" import="gibs.png"/>
+			<bitmap id="ImgSpawnerGibs" import="spawner_gibs.png"/>
+			<bitmap id="ImgBot" import="bot.png"/>
+			<bitmap id="ImgJet" import="jet.png"/>
+			<bitmap id="ImgSpaceman" import="spaceman.png"/>
+			<bitmap id="ImgSpawner" import="spawner.png"/>
+			<bitmap id="ImgBotBullet" import="bot_bullet.png"/>
+			<bitmap id="ImgBullet" import="bullet.png"/>
+        </library>
+    </frame>
+</movie>

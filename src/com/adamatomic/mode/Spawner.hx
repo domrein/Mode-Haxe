@@ -4,11 +4,10 @@ import org.flixel.FlxSprite;
 import org.flixel.FlxGroup;
 import org.flixel.FlxEmitter;
 import org.flixel.FlxG;
+import org.flixel.FlxObject;
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
-
-private class ImgSpawner extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/spawner.png"));}}
 
 class Spawner extends FlxSprite {
 	//[Embed(source="../../../data/spawner.png")] private var ImgSpawner:Class;
@@ -18,7 +17,7 @@ class Spawner extends FlxSprite {
 	
 	private var _timer:Float;
 	private var _bots:FlxGroup;
-	private var _botBullets:Array<Dynamic>;
+	public var _botBullets:Array<Dynamic>;
 	private var _botGibs:FlxEmitter;
 	private var _gibs:FlxEmitter;
 	private var _player:Player;
@@ -108,7 +107,7 @@ class Spawner extends FlxSprite {
 			return;
 		
 		//If there weren't any non-existent ones to respawn, just add a new one instead
-		var bot:Bot = new Bot(Math.floor(x + width/2), Math.floor(y + height/2), _botBullets, _botGibs, _player);
+		var bot:Bot = new Bot(Math.floor(x + width/2), Math.floor(y + height/2), cast _botBullets, _botGibs, _player);
 		bot.x -= bot.width/2;
 		bot.y -= bot.height/2;
 		_bots.add(bot);

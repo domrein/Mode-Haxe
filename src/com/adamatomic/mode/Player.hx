@@ -8,8 +8,6 @@ import org.flixel.FlxG;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 
-private class ImgSpaceman extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/spaceman.png"));}}
-
 class Player extends FlxSprite {
 	//[Embed(source="../../../data/spaceman.png")] private var ImgSpaceman:Class;
 	//[Embed(source="../../../data/jump.mp3")] private var SndJump:Class;
@@ -86,8 +84,12 @@ class Player extends FlxSprite {
 		}
 		else if(FlxG.keys.RIGHT)
 		{
+			//Main.debugTextField.text += "Pressing right\n";
 			facing = FlxSprite.RIGHT;
 			acceleration.x += drag.x;
+		}
+		if (FlxG.keys.X) {
+			Main.debugTextField.text += "Just pressed X, velocity.y: " + velocity.y + "\n";
 		}
 		if(FlxG.keys.justPressed("X") && velocity.y == 0)
 		{

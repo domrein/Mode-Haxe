@@ -7,8 +7,6 @@ import org.flixel.FlxG;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 
-private class ImgBullet extends Bitmap{public function new(){super(BitmapData.load("/Users/pmilham/Dropbox/Projects/XCode/Flixel/haxe/data/bot_bullet.png"));}}
-
 class BotBullet extends FlxSprite {
 	//[Embed(source="../../../data/bot_bullet.png")] private var ImgBullet:Class;
 	//[Embed(source="../../../data/jump.mp3")] private var SndHit:Class;
@@ -17,7 +15,7 @@ class BotBullet extends FlxSprite {
 	public function new()
 	{
 		super();
-		loadGraphic(ImgBullet,true);
+		loadGraphic(ImgBotBullet,true);
 		addAnimation("idle",[0, 1], 50);
 		addAnimation("poof",[2, 3, 4], 50, false);
 		exists = false;
